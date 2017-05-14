@@ -5,14 +5,9 @@
 </template>
 
 <script>
-console.clear();
-import axios from "axios";
-let api = "https://api.github.com/users/yiochen/repos";
-axios.get(api)
-  .then((response) => {
-    console.log(response.data.map(item => item.name));
-  })
-  .catch((error) => console.log(error));
+import githubService from '../services/github-service';
+
+githubService.getRepos('yiochen').then(items => console.log(items));
 
 export default {
   name: 'hello',
